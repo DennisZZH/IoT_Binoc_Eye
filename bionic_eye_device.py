@@ -64,7 +64,7 @@ if __name__ == '__main__':
     src_path = '/Users/zihaozhang/Desktop/IoT_Binoc_Eye/src_folder'
     # dst_path_local = '/Users/zihaozhang/Desktop/IoT_Binoc_Eye/dst_folder'
     # dst_path_remote = 'zihaozhang@csil-13.cs.ucsb.edu:~/IoT_Bionic_Eye'
-    dst_path_remote = zihaozhang@192.168.0.66:/Users/zihaozhang/Desktop/IoT_Binoc_Eye/dst_folder
+    dst_path_remote = 'zihaozhang@192.168.0.66:/Users/zihaozhang/Desktop'
     
     device = Device(img_path, src_path, dst_path_remote, 0.0)
     device.take_imgs()

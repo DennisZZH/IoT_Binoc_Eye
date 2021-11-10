@@ -4,15 +4,18 @@ import shutil
 class Device:
     # Thhihs class simulate the bionic eye device
     def __init__(self, img_path, src_path, dst_path, delay):
+        self.img_path = img_path
+        self.src_path = src_path
+        self.dst_path = dst_path
         self.processor = Processor()
         self.camera = Camera(img_path, src_path)
-        self.network = Network(delay)
+        self.network = Network(self.src_path, self.dst_path, delay = 0.0)
     
     def take_imgs(self):
         self.camera.take_imgs()
     
     def send_imgs(self):
-        self.network.send(src_path, dst_path)
+        self.network.send()
     
 class Processor:
     # This class simulate the processing
@@ -38,28 +41,34 @@ class Camera:
 
 class Network:
     cmd = 'rsync'
-    flags = ''
+    flags = '-rv'
 
     # This class simulate the network with linux util rsync
-    def __init__(self, delay = 0.0):
+    def __init__(self, src_path, dst_path, delay = 0.0):
+        self.src_path = src_path
+        self.dst_path = dst_path
         self.delay = delay
         
     # Send all imgs from src_path to dst_path
-    def send(self, src_path, dst_path):
-        os.system(cmd + flags + src_path + dst_path)
+    def send(self):
+        exe_cmd = self.cmd + ' ' + self.flags + ' ' + self.src_path + ' ' + self.dst_path
+        print(exe_cmd)
+        os.system(exe_cmd)
     
-    # Recv imgs from dst_path and store at src_path
+    # Recv imgs in dst_path
     def recv(self):
         return 'STUB'
 
 if __name__ == '__main__':
-    img_path = './img_folder'
-    src_path = './src_folder'
-    dst_path = './dst_folder'
-    device = Device(img_path, src_path, dst_path, 0.0)
+    img_path = '/Users/zihaozhang/Desktop/IoT_Binoc_Eye/img_folder'
+    src_path = '/Users/zihaozhang/Desktop/IoT_Binoc_Eye/src_folder'
+    # dst_path_local = '/Users/zihaozhang/Desktop/IoT_Binoc_Eye/dst_folder'
+    # dst_path_remote = 'zihaozhang@csil-13.cs.ucsb.edu:~/IoT_Bionic_Eye'
+    dst_path_remote = zihaozhang@192.168.0.66:/Users/zihaozhang/Desktop/IoT_Binoc_Eye/dst_folder
     
+    device = Device(img_path, src_path, dst_path_remote, 0.0)
     device.take_imgs()
-    # device.send_imgs()
+    device.send_imgs()
 
 
 

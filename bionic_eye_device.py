@@ -1,5 +1,6 @@
 import os, os.path
 import shutil
+import sys
 
 class Device:
     # Thhihs class simulate the bionic eye device
@@ -51,7 +52,8 @@ class Network:
         
     # Send all imgs from src_path to dst_path
     def send(self):
-        exe_cmd = self.cmd + ' ' + self.flags + ' ' + self.src_path + ' ' + self.dst_path
+        exe_cmd = self.cmd + ' ' + self.flags + ' ' + self.src_path + ' ' + \
+                  self.dst_path
         print(exe_cmd)
         os.system(exe_cmd)
     
@@ -62,9 +64,9 @@ class Network:
 if __name__ == '__main__':
     img_path = '/Users/zihaozhang/Desktop/IoT_Binoc_Eye/img_folder'
     src_path = '/Users/zihaozhang/Desktop/IoT_Binoc_Eye/src_folder'
-    # dst_path_local = '/Users/zihaozhang/Desktop/IoT_Binoc_Eye/dst_folder'
-    # dst_path_remote = 'zihaozhang@csil-13.cs.ucsb.edu:~/IoT_Bionic_Eye'
-    dst_path_remote = 'zihaozhang@192.168.0.66:/Users/zihaozhang/Desktop'
+   
+    dst_path_remote = sys.argv[1]
+    print(dst_path_remote)
     
     device = Device(img_path, src_path, dst_path_remote, 0.0)
     device.take_imgs()

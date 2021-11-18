@@ -1,1 +1,2 @@
+rm src_folder/*
 python bionic_eye_device.py jackzhu@169-231-167-228.wireless.ucsb.edu:/Users/jackzhu/Desktop/IoT_Binoc_Eye/server

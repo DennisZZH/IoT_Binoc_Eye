@@ -41,8 +41,8 @@ class Camera:
             shutil.copy(img_path + '/' + f, src_path)
 
 class Network:
-    cmd = 'rsync'
-    flags = '-rv'
+    cmd = 'rclone copy'
+    flags = ''
 
     # This class simulate the network with linux util rsync
     def __init__(self, src_path, dst_path, delay = 0.0):
@@ -64,9 +64,9 @@ class Network:
 if __name__ == '__main__':
     img_path = '/Users/zihaozhang/Desktop/IoT_Binoc_Eye/img_folder'
     src_path = '/Users/zihaozhang/Desktop/IoT_Binoc_Eye/src_folder'
-   
-    dst_path_remote = sys.argv[1]
-    print(dst_path_remote)
+    dst_path_remote = 'Bionic_Eye_IoT_Server:'
+    # dst_path_remote = sys.argv[1]
+    # print(dst_path_remote)
     
     device = Device(img_path, src_path, dst_path_remote, 0.0)
     device.take_imgs()

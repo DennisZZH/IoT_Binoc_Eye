@@ -64,7 +64,7 @@ class Network:
 if __name__ == '__main__':
     img_path = '/Users/zihaozhang/Desktop/IoT_Binoc_Eye/img_folder'
     src_path = '/Users/zihaozhang/Desktop/IoT_Binoc_Eye/src_folder'
-    dst_path_remote = 'Bionic_Eye_IoT_Server:'
+    dst_path_remote = 'Bionic_Eye_IoT_Server:Input'
     # dst_path_remote = sys.argv[1]
     # print(dst_path_remote)
     

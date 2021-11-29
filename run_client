@@ -1,2 +1,2 @@
-rm -f src_folder/*
-python bionic_eye_device.py
+rm -rf src_folder/
+python bionic_eye_device.py /Users/zihaozhang/Desktop/IoT_Binoc_Eye

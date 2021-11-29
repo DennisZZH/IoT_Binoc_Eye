@@ -62,11 +62,13 @@ class Network:
         return 'STUB'
 
 if __name__ == '__main__':
-    img_path = '/Users/zihaozhang/Desktop/IoT_Binoc_Eye/img_folder'
-    src_path = '/Users/zihaozhang/Desktop/IoT_Binoc_Eye/src_folder'
+    repo_path = sys.argv[1]
+    img_path = repo_path + '/img_folder'
+    src_path = repo_path + '/src_folder'
     dst_path_remote = 'Bionic_Eye_IoT_Server:Input'
-    # dst_path_remote = sys.argv[1]
-    # print(dst_path_remote)
+
+    cmd = 'mkdir ' + src_path
+    os.system(cmd)
     
     device = Device(img_path, src_path, dst_path_remote, 0.0)
     device.take_imgs()

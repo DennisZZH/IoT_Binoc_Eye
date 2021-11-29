@@ -1,2 +1,2 @@
-rm src_folder/*
-python bionic_eye_device.py jackzhu@169-231-164-166.wireless.ucsb.edu:/Users/jackzhu/Desktop/IoT_Binoc_Eye/server
+rm -f src_folder/*
+python bionic_eye_device.py

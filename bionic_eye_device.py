@@ -4,10 +4,12 @@ import sys
 
 class Device:
     # Thhihs class simulate the bionic eye device
-    def __init__(self, img_path, src_path, dst_path, delay):
+    def __init__(self, img_path, src_path, dst_path, delay, address, module):
         self.img_path = img_path
         self.src_path = src_path
         self.dst_path = dst_path
+        self.address = address
+        self.module = module
         self.processor = Processor()
         self.camera = Camera(img_path, src_path)
         self.network = Network(self.src_path, self.dst_path, delay = 0.0)
@@ -17,6 +19,11 @@ class Device:
     
     def send_imgs(self):
         self.network.send()
+
+    def load_info(self):
+        # Write address and module into client_info.txt in the src_folder
+        # TODO
+        return
     
 class Processor:
     # This class simulate the processing
@@ -65,12 +72,18 @@ if __name__ == '__main__':
     repo_path = sys.argv[1]
     img_path = repo_path + '/img_folder'
     src_path = repo_path + '/src_folder'
+    res_path = repo_path + '/res_folder'
     dst_path_remote = 'Bionic_Eye_IoT_Server:Input'
 
-    cmd = 'mkdir ' + src_path
+    cmd = 'mkdir ' + src_path + ' ; ' + 'mkdir ' + res_path
     os.system(cmd)
+
+    client_address = sys.argv[2]
+    module_selected = sys.argv[3]
     
-    device = Device(img_path, src_path, dst_path_remote, 0.0)
+    device = Device(img_path, src_path, dst_path_remote,
+                    0.0, client_address, module_selected)
+    device.load_info()
     device.take_imgs()
     device.send_imgs()
 

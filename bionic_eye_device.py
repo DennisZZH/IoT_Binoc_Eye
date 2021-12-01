@@ -3,7 +3,7 @@ import shutil
 import sys
 
 class Device:
-    # Thhihs class simulate the bionic eye device
+    # This class simulate the bionic eye device
     def __init__(self, img_path, src_path, dst_path, delay, address, module):
         self.img_path = img_path
         self.src_path = src_path
@@ -15,15 +15,19 @@ class Device:
         self.network = Network(self.src_path, self.dst_path, delay = 0.0)
     
     def take_imgs(self):
+        # Take imgs and store them in the src_folder
         self.camera.take_imgs()
     
     def send_imgs(self):
+        # Send imgs in the src_folder over the network to server
         self.network.send()
 
     def load_info(self):
         # Write address and module into client_info.txt in the src_folder
-        # TODO
-        return
+        f = open('src_folder/client_info.txt', 'w')
+        f.write(self.address + '\n')
+        f.write(self.module + '\n')
+        f.close()
     
 class Processor:
     # This class simulate the processing

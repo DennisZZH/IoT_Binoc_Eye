@@ -1,0 +1,2 @@
+docker build -t client .
+docker run client /Users/zihaozhang/Desktop/IoT_Binoc_Eye zihaozhang@127.000.00.1 img_to_txt_module

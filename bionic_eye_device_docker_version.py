@@ -23,7 +23,7 @@ class Device:
 
     def load_info(self):
         # Write address and module into client_info.txt in the src_folder
-        f = open('src_folder/client_info.txt', 'w')
+        f = open('app/src_folder/client_info.txt', 'w')
         f.write(self.address + ':' + repo_path + '\n')
         f.write(self.module + '\n')
         f.close()
@@ -38,8 +38,8 @@ class Camera:
     # Phase 1: read image from a destination
 
     def __init__(self, repo_path):
-        self.img_path = repo_path + '/img_folder'
-        self.src_path = repo_path + '/src_folder'
+        self.img_path = 'app/img_folder'
+        self.src_path = 'app/src_folder'
         
     def take_imgs(self):
         # move images from img_path to src_path
@@ -56,7 +56,7 @@ class Network:
 
     # This class simulate the network with linux util rsync
     def __init__(self, repo_path, dst_path, delay = 0.0):
-        self.src_path = repo_path + '/src_folder'
+        self.src_path = 'app/src_folder'
         self.dst_path = dst_path
         self.delay = delay
         

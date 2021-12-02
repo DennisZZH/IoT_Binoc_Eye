@@ -1,3 +1,0 @@
-rm -rf src_folder/
-docker build -t client .
-docker run client argu1 arug2 argu3

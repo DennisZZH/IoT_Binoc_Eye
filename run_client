@@ -1,3 +1,2 @@
 rm -rf src_folder/
-rm -rf res_folder/
-python bionic_eye_device.py /Users/zihaozhang/Desktop/IoT_Binoc_Eye zihaozhang@169-231-167-167.wireless.ucsb.edu obj_seg_module
+python bionic_eye_device.py /Users/zihaozhang/Desktop/IoT_Binoc_Eye zihaozhang@169-231-169-232.wireless.ucsb.edu obj_seg_module

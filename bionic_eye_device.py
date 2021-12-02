@@ -48,7 +48,7 @@ class Camera:
             ext = os.path.splitext(f)[1]
             if ext.lower() not in valid_ext:
                 continue
-            shutil.copy(self.img_path + '/' + f, src_path)
+            shutil.copy(self.img_path + '/' + f, self.src_path)
 
 class Network:
     cmd = 'rclone copy'

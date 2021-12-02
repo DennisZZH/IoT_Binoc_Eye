@@ -1,2 +1,0 @@
-zihaozhang@169-231-169-232.wireless.ucsb.edu:/Users/zihaozhang/Desktop/IoT_Binoc_Eye
-obj_seg_module

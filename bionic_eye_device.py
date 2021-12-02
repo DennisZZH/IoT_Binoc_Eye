@@ -86,7 +86,3 @@ if __name__ == '__main__':
     device.load_info()
     device.take_imgs()
     device.send_imgs()
-
-
-
-    

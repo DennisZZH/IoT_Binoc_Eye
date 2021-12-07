@@ -33,6 +33,16 @@ class Processor:
     def __init__(self):
         return
 
+    # This method pre-process the source images by sampling n images form the
+    # img_folder
+    def sampling(self, n):
+        return 
+    
+    # This method pre-process the source images by down scaling the source 
+    # images to size of n * m
+    def down_scaling(self, n, m):
+        return
+
 class Camera:
     # This class simulate the camera that takes photos
     # Phase 1: read image from a destination
